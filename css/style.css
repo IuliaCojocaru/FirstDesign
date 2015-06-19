@@ -1,0 +1,253 @@
+/*************HEADER***************/
+
+.header{
+    width: 100%;
+}
+
+.navMenuSelect{
+    float:left;
+}
+
+.headerTitle{
+    position: absolute;
+    color: red;
+    font-size: 25px;
+    left: 44%;
+    background: url("../img/imageBox.jpg") no-repeat center left;
+    padding-left: 30px;
+}
+
+.headerRightIcons{
+    float:right;
+}
+
+.headerRightIcons img{
+    height: 45px;
+}
+
+.headerForm{
+    clear: both;
+    background-color: rgb(229, 223, 223);
+    height: 135px;
+}
+
+.headerForm {
+    text-align: center;
+    padding: 38px;
+    box-sizing: border-box;
+    margin: 0px auto;
+}
+
+.headerForm input,
+.headerForm select {
+    height: 38px;
+    width: 298px;
+    border-radius: 10px;
+    background-color: rgb(236, 16, 16);
+    color: white;
+    font-size: 17px;
+    border: none;
+    box-sizing: border-box;
+    padding: 6px;
+    margin-right: 20px;
+}
+
+#searchButton{
+    margin-right: 0px;
+}
+
+form #selectJobTitle, #selectAllocationStatus, #insertInputName{
+    font-size: 15px;
+    background-color: white;
+    border-radius: 8px;
+    color: gray;
+}
+
+.advancedFilters{
+    color: rgb(103, 103, 103);
+    font-size: 17px;
+    padding-left: 48px;
+    padding-top: 12px;
+}
+
+/*#searchButton{
+    background-image: url('../img/searchIcon.png');
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+*/
+/****************MAIN CONTENT*************************/
+
+.mainContent{
+    width: 1265px;
+    margin: 0px auto;
+}
+
+.mainContentInformations{
+    padding-top: 22px;
+    height: auto;
+    overflow: hidden;
+}
+
+.employeesSelection{
+    float: right;
+}
+
+.employeesName{
+    float: left;
+    color: rgb(111, 108, 108);
+    font-size: 20px;
+}
+
+.employeesSelection #selectFilterBy, #selectShow{
+    height: 38px;
+    width: 194px;
+    border-radius: 8px;
+    color: gray;
+    font-size: 15px;
+}
+
+.employeesTable{
+    margin: auto;
+    padding-top: 30px;
+}
+
+.firstEmployeeDiv,
+.secondEmployeeDiv,
+.thirdEmployeeDiv,
+.fourthEmployeeDiv,
+.fifthEmloyeeDiv,
+.sixthEmployeeDiv,
+.sevthEmployeeDiv,
+.eigthEmployeeDiv,
+.ninthEmployeeDiv,
+.collapsedEmployeeInfos{
+    display:table;
+    width: 100%;
+    border-bottom: 1px solid rgb(208, 207, 207);
+}
+
+.collapsedEmployeeInfos{
+    border-bottom: none;
+    font-size: 15px;
+}
+
+.pageNumbers{
+    text-align: center;
+    padding-top: 45px;
+}
+
+.employeesTable ul,
+.pageNumbers ul{
+    list-style-type: none;
+}
+
+.pageNumbers ul{
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(190, 185, 185);
+    display: inline-block;
+}
+
+.pageNumbers ul li{
+    display: inline-block;
+    border-right: 1px solid rgb(190, 185, 185);
+    height: 36px;
+    width: 40px;
+}
+
+.pageNumbers ul li a{
+    text-decoration: none;
+    color: gray;
+}
+
+.firstEmployeeDiv span,
+.secondEmployeeDiv span,
+.thirdEmployeeDiv span,
+.fourthEmployeeDiv span,
+.fifthEmloyeeDiv span,
+.sixthEmployeeDiv span,
+.sevthEmployeeDiv span,
+.eigthEmployeeDiv span,
+.ninthEmployeeDiv span,
+.collapsedEmployeeInfos span{
+    display: table-cell;
+    width: 16.66%;
+    padding: 10px 5px;
+    color: rgb(115, 109, 109);
+}
+
+.collapsedEmployeeInfos span{
+    width: 50%;
+}
+
+.secondEmployeeDiv li,
+.thirdEmployeeDiv li,
+.fourthEmployeeDiv li,
+.fifthEmloyeeDiv li,
+.sixthEmployeeDiv li,
+.sevthEmployeeDiv li,
+.eigthEmployeeDiv li,
+.ninthEmployeeDiv li{
+    display: inline-block;
+}
+
+.secondEmployeeDiv{
+    border-bottom: 1px solid red;
+}
+
+.firstEmployeeDiv{
+    background-color: rgb(229, 223, 223);
+    color: rgb(115, 106, 106);
+}
+
+.thirdEmployeeDiv{
+    border-top: 1px solid rgb(208, 207, 207);;
+}
+
+.editEmployeeList a,
+.collapseEmployeeList a{
+    height: 20px;
+    width: 32px;
+    display: inline-block;
+}
+
+.collapsedEmployeeInfos .employeeInfosShown{
+    width: 182px;
+}
+
+.editEmployeeList a{
+    background: url('../img/pencil.png') no-repeat;
+}
+
+.collapseEmployeeList a{
+    background: url('../img/collapse.jpg') no-repeat;
+}
+
+.employeesTable ul{
+    margin: 0px;
+    padding: 0px;
+    width: 100px;
+    right: -13px;
+}
+
+.collapsedEmployeeInfos input{
+    float: right;
+    height: 34px;
+    width: 140px;
+    border-radius: 6px;
+    border-color: rgb(236, 16, 16);
+    background-color: white;
+    color: rgb(236, 16, 16);
+    border-width: 1px;
+}
+
+#inactiveButton{
+    border-color:gray;
+    color:gray;
+    margin-top: -24px;
+}
+
+#activeButton{
+    margin-top: -6px;
+}

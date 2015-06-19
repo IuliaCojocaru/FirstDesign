@@ -1,0 +1,223 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+        <div>
+            <header class="header">
+                <nav>
+                    <div class="navMenuSelect">
+                        <img src="img/menuSelect.jpg">
+                    </div>
+                </nav>
+                <section>
+                    <div class="headerTitle">
+                        <span>Work Force Planning</span>
+                    </div>
+                    <div class="headerRightIcons">
+                        <img src="img/rightIconsImage.jpg">
+                    </div>
+                </section>
+
+                <section class="headerForm">
+                    <form action="#">
+                        <input type="text" id="insertInputName" value="Name">
+                        <select name="allocationStatus" id="selectAllocationStatus">
+                            <option selected disabled>Allocation Status</option>
+                            <option value="allocated">Allocated</option>
+                            <option value="not-allocated">Not Allocated</option>
+                            <option value="some-other-option">Some other option</option>
+                        </select>
+                        <select value="jobTitle" id="selectJobTitle">
+                            <option selected disabled>Job Title(s)</option>
+                        </select>
+                        <input type="button" value="Search" name="Search" id="searchButton">
+                    </form>
+                    <div class="advancedFilters">Advanced filters</div>
+                </section>
+            </header>
+
+            <section class="mainContent">
+                <div class="mainContentInformations">
+                    <div class="employeesName">Employees</div>
+                    <div class="employeesSelection">
+                        <select name="selectFiterBy" id="selectFilterBy">
+                            <option selected disabled>Filter by:Multiple selection</option>
+                        </select>
+                        <select name="selectShow" id="selectShow">
+                            <option selected disabled>Show:10 entries</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="employeesTable">
+                    <div class="firstEmployeeDiv">
+                        <span>Full Name</span>
+                        <span>Job Title</span>
+                        <span>Grade</span>
+                        <span>Allocation status</span>
+                        <span>Project</span>
+                        <span>Date of booking</span>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+
+                    <div class="secondEmployeeDiv">
+                        <span>Ciba Mumu</span>
+                        <span>UI Developer</span>
+                        <span>Senior Engineer</span>
+                        <span>Allocated</span>
+                        <span>Trinity Miror</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="collapsedEmployeeInfos">
+                        <div>
+                            <span>Delivery Unit:</span>
+                            <span class="employeeInfosShown">ISD_Iasi</span>
+                            <input type="button" name="activeButton" id="activeButton" value="Active Button">
+                        </div>
+
+                        <div>
+                            <span class="employeeInfosShown">Date of start:</span>
+                            <span>12/03/2015</span>
+                        </div>
+
+                        <div>
+                            <span>Line Manager</span>
+                            <span class="employeeInfosShown">Bogdan Volosincu</span>
+                            <input type="button" name="activeButton" id="inactiveButton" value="Inactive Button">
+                        </div>
+
+                        <div>
+                            <span>Project Manager:</span>
+                            <span class="employeeInfosShown">Andrei Ursache</span>
+                        </div>
+
+                    </div>
+
+                    <div class="thirdEmployeeDiv">
+                        <span>Vrinceanu Valentin</span>
+                        <span>Java Developer</span>
+                        <span>Senior Consultant</span>
+                        <span>Not Allocated</span>
+                        <span>Visa</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="fourthEmployeeDiv">
+                        <span>Bogdan Volosincu</span>
+                        <span>.NET Developer</span>
+                        <span>Senior Technician</span>
+                        <span>Allocated</span>
+                        <span>Graduates</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="fifthEmloyeeDiv">
+                        <span>Carmen Budau</span>
+                        <span>Business Analyst</span>
+                        <span>Engineer</span>
+                        <span>Not Allocated</span>
+                        <span>Denplan</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sixthEmployeeDiv">
+                        <span>Ciba Mumu</span>
+                        <span>UI Developer</span>
+                        <span>Senior Engineer</span>
+                        <span>Allocated</span>
+                        <span>Trinity Mirror</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sevthEmployeeDiv">
+                        <span>Vrinceanu Valentin</span>
+                        <span>Java Developer</span>
+                        <span>Senior Consultant</span>
+                        <span>Not Allocated</span>
+                        <span>Visa</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="eigthEmployeeDiv">
+                        <span>Bogdan Volosincu</span>
+                        <span>.NET Developer</span>
+                        <span>Senior Technician</span>
+                        <span>Allocated</span>
+                        <span>Graduates</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="ninthEmployeeDiv">
+                        <span>Carmen Budau</span>
+                        <span>Business Analyst</span>
+                        <span>Engineer</span>
+                        <span>Not Allocated</span>
+                        <span>Denplan</span>
+                        <span>10/05/2014</span>
+                        <ul>
+                            <li class="editEmployeeList"><a href="#"></a></li>
+                            <li class="collapseEmployeeList"><a href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pageNumbers">
+                    <ul>
+                        <li><a href="#"> << </a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">>></a></li>
+                    </ul>
+                </div>
+
+            </section>
+        </div>
+    </body>
+</html>
