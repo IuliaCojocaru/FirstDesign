@@ -7,11 +7,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/mediaQuery.css">
 
     </head>
     <body>
-        <div>
-            <header class="header">
+        <div class="wrapper">
+            <section class="header">
                 <nav>
                     <div class="nav-menu-select">
                         <img src="img/menuSelect.jpg">
@@ -42,11 +43,11 @@
                     </form>
                     <div class="advanced-filters">Advanced filters</div>
                 </section>
-            </header>
+            </section>
 
-            <section class="main-content">
-                <div class="main-content-informations">
-                    <div class="employees-name">Employees</div>
+            <main>
+                <div class="main-informations">
+                    <h1 class="employees-name">Employees</h1>
                     <div class="employees-selection">
                         <select name="selectFiterBy" id="select-filter-by">
                             <option selected disabled>Filter by:Multiple selection</option>
@@ -85,28 +86,32 @@
                     </div>
 
                     <div class="collapsed-employee-infos">
-                        <div>
-                            <span>Delivery Unit:</span>
-                            <span class="employee-infos-shown">ISD_Iasi</span>
+                        <div class="collapsed-infos">
+                            <div>
+                                <span>Delivery Unit:</span>
+                                <span class="employee-infos-shown">ISD_Iasi</span>
+                            </div>
+
+                            <div>
+                                <span class="employee-infos-shown">Date of start:</span>
+                                <span>12/03/2015</span>
+                            </div>
+
+                            <div>
+                                <span>Line Manager</span>
+                                <span class="employee-infos-shown">Bogdan Volosincu</span>
+                            </div>
+
+                            <div>
+                                <span>Project Manager:</span>
+                                <span class="employee-infos-shown">Andrei Ursache</span>
+                            </div>
+                        </div>
+
+                        <div class="buttons-employee">
                             <input type="button" name="activeButton" id="active-button" value="Active Button">
-                        </div>
-
-                        <div>
-                            <span class="employee-infos-shown">Date of start:</span>
-                            <span>12/03/2015</span>
-                        </div>
-
-                        <div>
-                            <span>Line Manager</span>
-                            <span class="employee-infos-shown">Bogdan Volosincu</span>
                             <input type="button" name="activeButton" id="inactive-button" value="Inactive Button">
                         </div>
-
-                        <div>
-                            <span>Project Manager:</span>
-                            <span class="employee-infos-shown">Andrei Ursache</span>
-                        </div>
-
                     </div>
 
                     <div class="third-employee-div">
@@ -201,9 +206,9 @@
                     </div>
                 </div>
 
-                <div class="page-numbers">
+                <nav>
                     <ul>
-                        <li><a href="#"> << </a></li>
+                        <li><a href="#"> &lt&lt </a></li>
                         <li><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
@@ -213,11 +218,10 @@
                         <li><a href="#">7</a></li>
                         <li><a href="#">8</a></li>
                         <li><a href="#">...</a></li>
-                        <li><a href="#">>></a></li>
+                        <li><a href="#"> &gt&gt </a></li>
                     </ul>
-                </div>
-
-            </section>
+                </nav>
+            </main>
         </div>
     </body>
 </html>

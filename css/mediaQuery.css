@@ -1,0 +1,70 @@
+/* ----------- iPad mini ----------- */
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+    main{
+        width: 95%;
+    }
+    .header-title{
+        left: 38%;
+    }
+}
+/* Portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 1) {
+    .header-title{
+        left: 32%;
+        font-size: 24px;
+    }
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3) {
+    .advanced-filters{
+        padding-left: 150px;
+    }
+    .header-title{
+        left: 20%;
+        font-size: 20px;
+    }
+    .header-right-icons img {
+        height: 30px;
+    }
+    .nav-menu-select img{
+        height: 18px;
+    }
+    .header-form{
+        padding-top: 16px;
+        height: 206px;
+    }
+    .header-form input,
+    .header-form select{
+        height: 168%;
+        width: 102%;
+        padding: 10px;
+        margin-right: 0;
+    }
+
+}
+
+/* Landscape */
+@media only screen
+and (device-width: 360px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    .header-title{
+        left: 30%;
+        font-size: 22px;
+    }
+}
