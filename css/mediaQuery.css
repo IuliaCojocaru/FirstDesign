@@ -1,51 +1,54 @@
-/* ----------- iPad mini ----------- */
-
 @media only screen
 and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (-webkit-min-device-pixel-ratio: 1) {
-    main{
-        width: 95%;
-    }
+and (max-device-width: 1024px) {
     .header-title{
         left: 38%;
+    }
+    main{
+        width: 95%;
     }
 }
 /* Portrait */
 @media only screen
 and (min-device-width: 768px)
 and (max-device-width: 1024px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 1) {
+and (orientation: portrait) {
     .header-title{
         left: 32%;
         font-size: 24px;
     }
 }
 
-/* ----------- Galaxy S5 ----------- */
-
 /* Portrait and Landscape */
 @media only screen
 and (device-width: 360px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3) {
+and (device-height: 640px) {
     .advanced-filters{
-        padding-left: 150px;
+        padding-left: 0px;
+        padding-top: 28px;
+    }
+    .collapsed-employee-infos{
+        font-size: 13px;
+    }
+    .employees-table{
+        font-size: 13px;
+    }
+    .employee-header{
+        display: inline-block;
+    }
+    .employee-header span{
+        padding: 10px 3px;
     }
     .header-title{
         left: 20%;
         font-size: 20px;
     }
     .header-right-icons img {
-        height: 30px;
-    }
-    .nav-menu-select img{
-        height: 18px;
+        height: 26px;
     }
     .header-form{
-        padding-top: 16px;
-        height: 206px;
+        height: 256px;
+        padding: 26px;
     }
     .header-form input,
     .header-form select{
@@ -54,7 +57,39 @@ and (-webkit-device-pixel-ratio: 3) {
         padding: 10px;
         margin-right: 0;
     }
-
+    .nav-menu-select img{
+        height: 18px;
+        padding-top: 3px;
+    }
+    main{
+        width: 92%;
+    }
+    main nav{
+        display: table;
+        padding-top: 22px;
+        padding-bottom: 20px;
+        padding-left: 8px;
+    }
+    .main nav a{
+        padding: 5px 5px;
+    }
+    main nav ul{
+        display: table-row;
+    }
+    nav li > a{
+        font-size: 13px;
+    }
+    main nav li{
+        display: table-cell;
+        width: auto;
+        padding: 0px;
+        border: 1px solid gray;
+        height: 30px;
+    }
+    #table-wrapper{
+        overflow-x: scroll;
+        border: 1px solid #cecece;
+    }
 }
 
 /* Landscape */

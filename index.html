@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/mediaQuery.css">
 
+        <script src="service/data.js"></script>
+
     </head>
     <body>
         <div class="wrapper">
@@ -58,8 +60,8 @@
                     </div>
                 </div>
 
-                <div class="employees-table">
-                    <div class="first-employee-div">
+                <div class="employees-table" data-table-name="employees">
+                    <div class="employee-header">
                         <span>Full Name</span>
                         <span>Job Title</span>
                         <span>Grade</span>
@@ -72,143 +74,144 @@
                         </ul>
                     </div>
 
-                    <div class="second-employee-div">
-                        <span>Ciba Mumu</span>
-                        <span>UI Developer</span>
-                        <span>Senior Engineer</span>
-                        <span>Allocated</span>
-                        <span>Trinity Miror</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="collapsed-employee-infos">
-                        <div class="collapsed-infos">
-                            <div>
-                                <span>Delivery Unit:</span>
-                                <span class="employee-infos-shown">ISD_Iasi</span>
+                    <div id="table-wrapper">
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
                             </div>
 
-                            <div>
-                                <span class="employee-infos-shown">Date of start:</span>
-                                <span>12/03/2015</span>
+      <!--                  <div class="collapsed-employee-infos">
+                                <div class="collapsed-infos">
+                                    <div>
+                                        <span>Delivery Unit:</span>
+                                        <span class="employee-infos-shown">ISD_Iasi</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="employee-infos-shown">Date of start:</span>
+                                        <span>12/03/2015</span>
+                                    </div>
+
+                                    <div>
+                                        <span>Line Manager</span>
+                                        <span class="employee-infos-shown">Bogdan Volosincu</span>
+                                    </div>
+
+                                    <div>
+                                        <span>Project Manager:</span>
+                                        <span class="employee-infos-shown">Andrei Ursache</span>
+                                    </div>
+                                </div>
+
+                                <div class="buttons-employee">
+                                    <input type="button" name="activeButton" id="active-button" value="Active Button">
+                                    <input type="button" name="activeButton" id="inactive-button" value="Inactive Button">
+                                </div>
+                            </div>
+-->
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
                             </div>
 
-                            <div>
-                                <span>Line Manager</span>
-                                <span class="employee-infos-shown">Bogdan Volosincu</span>
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
                             </div>
 
-                            <div>
-                                <span>Project Manager:</span>
-                                <span class="employee-infos-shown">Andrei Ursache</span>
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
                             </div>
+
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
+                            </div>
+
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
+                            </div>
+
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
+                            </div>
+
+                        <div class="row">
+                            <span class="name-column" data-column-type="name-column"></span>
+                            <span class="job-column" data-column-type="job-column"></span>
+                            <span class="grade-column" data-column-type="grade-column"></span>
+                            <span class="status-column" data-column-type="status-column"></span>
+                            <span class="project-column" data-column-type="project-column"></span>
+                            <span class="booking-column" data-column-type="booking-column"></span>
+                                <ul>
+                                    <li class="edit-employee-list"><a href="#"></a></li>
+                                    <li class="collapse-employee-list"><a href="#"></a></li>
+                                </ul>
                         </div>
-
-                        <div class="buttons-employee">
-                            <input type="button" name="activeButton" id="active-button" value="Active Button">
-                            <input type="button" name="activeButton" id="inactive-button" value="Inactive Button">
-                        </div>
-                    </div>
-
-                    <div class="third-employee-div">
-                        <span>Vrinceanu Valentin</span>
-                        <span>Java Developer</span>
-                        <span>Senior Consultant</span>
-                        <span>Not Allocated</span>
-                        <span>Visa</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="fourth-employee-div">
-                        <span>Bogdan Volosincu</span>
-                        <span>.NET Developer</span>
-                        <span>Senior Technician</span>
-                        <span>Allocated</span>
-                        <span>Graduates</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="fifth-emloyee-div">
-                        <span>Carmen Budau</span>
-                        <span>Business Analyst</span>
-                        <span>Engineer</span>
-                        <span>Not Allocated</span>
-                        <span>Denplan</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sixth-employee-div">
-                        <span>Ciba Mumu</span>
-                        <span>UI Developer</span>
-                        <span>Senior Engineer</span>
-                        <span>Allocated</span>
-                        <span>Trinity Mirror</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sevth-employee-div">
-                        <span>Vrinceanu Valentin</span>
-                        <span>Java Developer</span>
-                        <span>Senior Consultant</span>
-                        <span>Not Allocated</span>
-                        <span>Visa</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="eigth-employee-div">
-                        <span>Bogdan Volosincu</span>
-                        <span>.NET Developer</span>
-                        <span>Senior Technician</span>
-                        <span>Allocated</span>
-                        <span>Graduates</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="ninth-employee-div">
-                        <span>Carmen Budau</span>
-                        <span>Business Analyst</span>
-                        <span>Engineer</span>
-                        <span>Not Allocated</span>
-                        <span>Denplan</span>
-                        <span>10/05/2014</span>
-                        <ul>
-                            <li class="edit-employee-list"><a href="#"></a></li>
-                            <li class="collapse-employee-list"><a href="#"></a></li>
-                        </ul>
                     </div>
                 </div>
-
                 <nav>
                     <ul>
-                        <li><a href="#"> &lt&lt </a></li>
+                        <li><a href="#">&laquo;</a></li>
                         <li><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
@@ -218,10 +221,12 @@
                         <li><a href="#">7</a></li>
                         <li><a href="#">8</a></li>
                         <li><a href="#">...</a></li>
-                        <li><a href="#"> &gt&gt </a></li>
+                        <li><a href="#">&raquo;</a></li>
                     </ul>
                 </nav>
             </main>
         </div>
+
+        <script src="js/app.js"></script>
     </body>
 </html>

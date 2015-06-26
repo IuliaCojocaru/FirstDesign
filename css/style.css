@@ -96,7 +96,8 @@ main{
     font-weight: normal;
 }
 
-.employees-selection #select-filter-by, #select-show{
+.employees-selection #select-filter-by,
+#select-show{
     height: 38px;
     width: 194px;
     border-radius: 8px;
@@ -109,15 +110,8 @@ main{
     padding-top: 16px;
 }
 
-.first-employee-div,
-.second-employee-div,
-.third-employee-div,
-.fourth-employee-div,
-.fifth-emloyee-div,
-.sixth-employee-div,
-.sevth-employee-div,
-.eigth-employee-div,
-.ninth-employee-div,
+.employee-header,
+.row,
 .collapsed-employee-infos{
     display:table;
     width: 100%;
@@ -160,15 +154,8 @@ main nav a{
     display: block;
 }
 
-.first-employee-div span,
-.second-employee-div span,
-.third-employee-div span,
-.fourth-employee-div span,
-.fifth-emloyee-div span,
-.sixth-employee-div span,
-.sevth-employee-div span,
-.eigth-employee-div span,
-.ninth-employee-div span,
+.employee-header span,
+.row span,
 .collapsed-employee-infos span{
     display: table-cell;
     width: 16.66%;
@@ -176,18 +163,15 @@ main nav a{
     color: rgb(115, 109, 109);
 }
 
+.employee-header{
+ background-color: rgb(208, 207, 207);
+}
+
 .collapsed-employee-infos span{
     width: 50%;
 }
 
-.second-employee-div li,
-.third-employee-div li,
-.fourth-employee-div li,
-.fifth-emloyee-div li,
-.sixth-employee-div li,
-.sevth-employee-div li,
-.eigth-employee-div li,
-.ninth-employee-div li{
+.row li{
     display: inline-block;
 }
 
@@ -195,7 +179,7 @@ main nav a{
     border-bottom: 1px solid red;
 }
 
-.first-employee-div{
+.employee-div{
     background-color: rgb(229, 223, 223);
     color: rgb(115, 106, 106);
 }
