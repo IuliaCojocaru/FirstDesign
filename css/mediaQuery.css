@@ -32,7 +32,7 @@ and (device-height: 640px) {
         font-size: 13px;
     }
 
-    .employees-table{
+    .data-table{
         font-size: 13px;
         padding-top: 0;
     }
@@ -41,13 +41,13 @@ and (device-height: 640px) {
         width: 800px;
     }
 
-    .employees-selection #select-filter-by,
-     #select-show{
+    .employees-selection .select-filter-by,
+     .select-show{
         width: 100%;
         margin-bottom: 12px;
     }
 
-    .employees-table{
+    .data-table{
         overflow-x: auto;
         border: 1px solid #cecece;
     }

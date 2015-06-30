@@ -1,6 +1,6 @@
 /*************HEADER***************/
 
-.header{
+header{
     width: 100%;
 }
 
@@ -52,13 +52,13 @@
     margin-right: 15px;
 }
 
-#search-button{
+.search-button{
     margin-right: 0px;
 }
 
-form #select-job-title,
-#select-allocation-status,
-#insert-input-name{
+form .select-job-title,
+form .select-allocation-status,
+form .insert-input-name{
     font-size: 15px;
     background-color: white;
     border-radius: 8px;
@@ -96,8 +96,8 @@ main{
     font-weight: normal;
 }
 
-.employees-selection #select-filter-by,
-#select-show{
+.employees-selection .select-filter-by,
+.select-show{
     height: 38px;
     width: 194px;
     border-radius: 8px;
@@ -105,12 +105,12 @@ main{
     font-size: 15px;
 }
 
-.employees-table{
+.data-table{
     margin: auto;
     padding-top: 16px;
 }
 
-.employee-header,
+.table-header,
 .row,
 .collapsed-employee-infos{
     display:table;
@@ -129,7 +129,7 @@ main{
     padding-top: 3%;
 }
 
-.employees-table ul{
+.data-table ul{
     list-style-type: none;
 }
 
@@ -154,7 +154,7 @@ main{
     display: block;
 }
 
-.employee-header span,
+.table-header span,
 .row span,
 .collapsed-employee-infos span{
     display: table-cell;
@@ -163,7 +163,7 @@ main{
     color: rgb(115, 109, 109);
 }
 
-.employee-header{
+.table-header{
  background-color: rgb(208, 207, 207);
 }
 
@@ -208,7 +208,7 @@ main{
     background: url('../img/collapse.jpg') no-repeat;
 }
 
-.employees-table ul{
+.data-table ul{
     margin: 0;
     padding: 0;
     width: 100px;
