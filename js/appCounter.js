@@ -4,6 +4,8 @@ var myApp = myApp || {};
 
 myApp.counter = (function(){
 
+    var employees = myApp.employees;
+
     function init(){
         bindEvents();
     }

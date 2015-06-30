@@ -3,3 +3,5 @@
  */
 
 var myApp = {};
+
+var myApp = myApp || {};
