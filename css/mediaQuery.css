@@ -25,70 +25,90 @@ and (device-width: 360px)
 and (device-height: 640px) {
     .advanced-filters{
         padding-left: 0px;
-        padding-top: 28px;
+        padding-top: 10px;
     }
+
     .collapsed-employee-infos{
         font-size: 13px;
     }
+
     .employees-table{
         font-size: 13px;
+        padding-top: 0;
     }
+
     .employee-header{
-        display: inline-block;
+        width: 800px;
     }
-    .employee-header span{
-        padding: 10px 3px;
+
+    .employees-selection #select-filter-by,
+     #select-show{
+        width: 100%;
+        margin-bottom: 12px;
     }
+
+    .employees-table{
+        overflow-x: auto;
+        border: 1px solid #cecece;
+    }
+
     .header-title{
-        left: 20%;
+        left: 18%;
         font-size: 20px;
     }
+
     .header-right-icons img {
         height: 26px;
     }
+
     .header-form{
         height: 256px;
         padding: 26px;
     }
+
     .header-form input,
     .header-form select{
         height: 168%;
-        width: 102%;
+        width: 100%;
+        margin-bottom: 10px;
         padding: 10px;
         margin-right: 0;
     }
+
     .nav-menu-select img{
         height: 18px;
         padding-top: 3px;
     }
+
     main{
         width: 92%;
     }
-    main nav{
-        display: table;
-        padding-top: 22px;
-        padding-bottom: 20px;
-        padding-left: 8px;
+
+    .pagination{
+        padding: 20px 8px 20px 8px;
     }
-    .main nav a{
+
+    .pagination a{
         padding: 5px 5px;
     }
-    main nav ul{
-        display: table-row;
-    }
-    nav li > a{
+
+    .pagination li > a{
         font-size: 13px;
     }
-    main nav li{
+
+    .pagination li{
         display: table-cell;
         width: auto;
         padding: 0px;
         border: 1px solid gray;
         height: 30px;
     }
-    #table-wrapper{
-        overflow-x: scroll;
-        border: 1px solid #cecece;
+
+    .row {
+        min-height: 36px;
+    }
+    #table-wrapper {
+        width: 800px;
     }
 }
 

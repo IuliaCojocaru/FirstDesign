@@ -116,6 +116,7 @@ main{
     display:table;
     width: 100%;
     border-bottom: 1px solid rgb(208, 207, 207);
+    min-height: 36px;
 }
 
 .collapsed-employee-infos{
@@ -123,31 +124,30 @@ main{
     font-size: 15px;
 }
 
-main nav{
+.pagination{
     text-align: center;
     padding-top: 3%;
 }
 
-.employees-table ul,
-.main-content nav ul{
+.employees-table ul{
     list-style-type: none;
 }
 
-main nav ul{
+.pagination ul{
     margin: 0;
     padding: 0;
     border: 1px solid rgb(190, 185, 185);
     display: inline-block;
 }
 
-main nav li{
+.pagination li{
     display: inline-block;
     border-right: 1px solid rgb(190, 185, 185);
     height: 36px;
     width: 40px;
 }
 
-main nav a{
+.pagination a{
     text-decoration: none;
     color: gray;
     padding: 8px;
@@ -236,7 +236,7 @@ main nav a{
     margin-top: -120px;
 }
 
-main nav li:last-child{
+.pagination li:last-child{
     border-right: none;
 }
 
