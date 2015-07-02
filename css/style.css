@@ -70,6 +70,7 @@ form .insert-input-name{
     font-size: 17px;
     padding-left: 48px;
     padding-top: 12px;
+    background: url('../img/filter.jpg') no-repeat center;
 }
 
 /****************MAIN CONTENT*************************/

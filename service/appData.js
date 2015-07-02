@@ -15,7 +15,7 @@ myApp.employees = (function(){
             allocationstatus: "Allocated",
             project: "Trinity Mirror",
             dateofbooking: "10/05/2014"
-            },
+        },
         {
             fullname: "Vrinceanu Valentin",
             jobtitle: "Java Developer",
