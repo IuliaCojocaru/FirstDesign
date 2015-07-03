@@ -23,6 +23,7 @@ myApp.search = (function(){
             var nameColumn = self.employees[index].fullname;
             if(nameColumn.indexOf(word) >= 0)
                 console.log(word, nameColumn);
+            return nameColumn;
         }
     };
     //TODO: setTimeout +  publish/subscriber pattern
