@@ -8,6 +8,7 @@ myApp.dataTable= (function(){
 
     function init(){
         generateTable(employees);
+        makeTableEditable(".table-editable");
     }
 
     function createListTools(){
@@ -18,11 +19,11 @@ myApp.dataTable= (function(){
         var aLink = document.createElement("a");
         aLink.setAttribute("href", "#");
 
-        firstListItem.appendChild(aLink);
-        lastListItem.appendChild(aLink);
-
         firstListItem.className = "edit-employee-list";
         lastListItem.className = "collapse-employee-list";
+
+        firstListItem.appendChild(aLink);
+        lastListItem.appendChild(aLink.cloneNode(true));
 
         listRoot.appendChild(firstListItem);
         listRoot.appendChild(lastListItem);
@@ -31,29 +32,30 @@ myApp.dataTable= (function(){
     }
 
     function generateTable(dataObject){
-        var table = document.querySelector(".table-wrapper");
-        var list = createListTools();
+        var table = document.querySelectorAll(".table-wrapper");
 
-        console.log(list);
+        for(var i = 0; i < table.length; i++){
+            for(var index in dataObject){
+                var list = createListTools();
+                var row = document.createElement("div");
 
-        for(var index in dataObject){
-            var row = document.createElement("div");
-            row.className = "row";
+                row.className = "row";
 
-            for(var employeeObject in dataObject[index]){
-                var column = document.createElement("span");
-                var spanValue = dataObject[index][employeeObject];
-                column.innerHTML = spanValue;
-                column.setAttribute('data-editable', true);
-                row.appendChild(column);
-        //        row.appendChild(list);
+                for(var employeeObject in dataObject[index]){
+                    var column = document.createElement("span");
+                    var spanValue = dataObject[index][employeeObject];
+                    column.innerHTML = spanValue;
+                    column.setAttribute('data-editable', "");
+                    row.appendChild(column);
+                    row.appendChild(list);
+                }
+                table[i].appendChild(row);
             }
-            table.appendChild(row);
         }
     }
 
-    function makeTableEditable(customTable){
-        var editableSpans = document.querySelectorAll(customTable + " [data-editable]");
+    function makeTableEditable(dataTable){
+        var editableSpans = document.querySelectorAll(dataTable + " [data-editable]");
 
         for(var i = 0; i < editableSpans.length; i++){
             var myInput = document.createElement('input');
@@ -75,5 +77,5 @@ myApp.dataTable= (function(){
 })();
 
 myApp.dataTable.init();
-myApp.dataTable.editTable(".table-wrapper");
+
 

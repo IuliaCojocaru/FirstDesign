@@ -49,9 +49,7 @@
                 <div class="main-informations">
                     <h1 class="employees-name">Employees</h1>
                     <div class="employees-selection">
-                        <select name="selectFiterBy" class="select-filter-by">
-                            <option selected disabled>Filter by:Multiple selection</option>
-                        </select>
+                        <input type="text" class="select-filter-by" value="Do a search">
                         <select name="selectShow" class="select-show">
                             <option selected disabled>Show:10 entries</option>
                         </select>
@@ -76,6 +74,18 @@
                     </div>
                 </div>
 
+                <div class="main-informations">
+                    <h1 class="employees-name">Better Employees</h1>
+                    <div class="employees-selection">
+                        <select name="selectFiterBy" class="select-filter-by">
+                            <option selected disabled>Do a search </option>
+                        </select>
+                        <select name="selectShow" class="select-show">
+                            <option selected disabled>Show:10 entries</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="data-table">
                     <div class="table-header">
                         <span>Full Name</span>
@@ -90,7 +100,7 @@
                         </ul>
                     </div>
 
-                    <div class="table-wrapper">
+                    <div class="table-wrapper table-editable">
                     </div>
                 </div>
 
