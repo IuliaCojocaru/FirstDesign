@@ -1,12 +1,10 @@
 /**
  * Created by icojocaru on 6/25/2015.
  */
-
-'use strict';
-
 var myApp = myApp || {};
 
 myApp.employees = (function(){
+    "use strict";
     var employeesObject = [
         {
             fullname: "Ciba Mumu",

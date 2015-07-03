@@ -1,17 +1,25 @@
-'use strict';
-
 var myApp = myApp || {};
 
+//TODO: config file
+
 myApp.dataTable= (function(){
+    "use strict";
+    var editableTable = ".table-editable";
+    var tableApp = function(){
+        this.employees = myApp.employees;
+        this.init();
+    };
 
-    var employees = myApp.employees;
+    tableApp.prototype.init = function(){
+        this.bindEvents();
+    };
 
-    function init(){
-        generateTable(employees);
-        makeTableEditable(".table-editable");
-    }
+    tableApp.prototype.bindEvents = function(){
+        this.generateTable(this.employees);
+        this.makeTableEditable(editableTable);
+    };
 
-    function createListTools(){
+    tableApp.prototype.createListTools = function(){
         var listRoot = document.createElement("ul");
         var firstListItem = document.createElement("li");
         var lastListItem = document.createElement("li");
@@ -29,14 +37,15 @@ myApp.dataTable= (function(){
         listRoot.appendChild(lastListItem);
 
         return listRoot;
-    }
+    };
 
-    function generateTable(dataObject){
+    tableApp.prototype.generateTable = function(dataObject){
         var table = document.querySelectorAll(".table-wrapper");
+        var self = this;
 
         for(var i = 0; i < table.length; i++){
             for(var index in dataObject){
-                var list = createListTools();
+                var list = self.createListTools();
                 var row = document.createElement("div");
 
                 row.className = "row";
@@ -52,9 +61,9 @@ myApp.dataTable= (function(){
                 table[i].appendChild(row);
             }
         }
-    }
+    };
 
-    function makeTableEditable(dataTable){
+    tableApp.prototype.makeTableEditable = function(dataTable){
         var editableSpans = document.querySelectorAll(dataTable + " [data-editable]");
 
         for(var i = 0; i < editableSpans.length; i++){
@@ -63,19 +72,14 @@ myApp.dataTable= (function(){
             myInput.textContent = editableSpans[i].innerText;
             myInput.value = editableSpans[i].innerText;
 
-            var parent = editableSpans[i].parentElement;
-            parent.insertBefore(myInput,editableSpans[i]);
+            var columnParent = editableSpans[i].parentElement;
+            columnParent.insertBefore(myInput,editableSpans[i]);
             editableSpans[i].remove();
         }
-    }
-
-    return{
-        init: init,
-        editTable: makeTableEditable
     };
 
+    return tableApp;
 })();
 
-myApp.dataTable.init();
-
+myApp.tableInstances = new myApp.dataTable();
 
