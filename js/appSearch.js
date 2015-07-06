@@ -4,8 +4,11 @@
 
 myApp = myApp || {};
 
+//TODO: setTimeout +  publish/subscriber pattern
+
 myApp.search = (function(){
     "use strict";
+
 
     var searchApp = function(){
         this.employees = myApp.employees;
@@ -17,15 +20,15 @@ myApp.search = (function(){
     };
 
     searchApp.prototype.bindEvents = function(){
-        this.addEventOnSearch();
+        //this.addEventOnSearch();
     };
 
-    searchApp.prototype.filterItem = function(item){
+    searchApp.prototype.filterItem = function(item, nameColumn){
         var word = item.toLowerCase(),
             rows = document.querySelectorAll(".table-wrapper .row");
 
         for(var i = 0; i < this.employees.length; i++){
-            var nameColumn = (this.employees[i].fullname).toLowerCase();
+            nameColumn = (this.employees[i].fullname).toLowerCase();
             if(nameColumn.indexOf(word) != -1){
                 rows[i].style.display = "table-row";
             }else{
@@ -34,20 +37,20 @@ myApp.search = (function(){
         }
     };
 
-    //TODO: setTimeout +  publish/subscriber pattern
+    searchApp.prototype.filterHeader = function(item){
 
-    searchApp.prototype.addEventOnSearch = function(){
-        var searchField = document.querySelectorAll(".select-filter-by"),
-            self = this;
-
-        for(var item = 0; item < searchField.length; item++){
-            searchField[item].addEventListener("keyup", function(){
-                var value = searchField[0].value;
-                self.filterItem(value);
-            });
-        }
     };
+
     return searchApp;
 })();
 
-myApp.myInstances = new myApp.search();
+var searchField = document.querySelectorAll(".select-filter-by");
+
+myApp.myInstance = new myApp.search();
+myApp.pubSub.listen("customEvent", myApp.myInstance.filterItem);
+
+searchField[0].addEventListener("keyup", function(e){
+    var searchItem = e.target.value;
+    myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
+});
+
