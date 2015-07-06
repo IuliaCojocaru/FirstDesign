@@ -9,10 +9,8 @@ myApp = myApp || {};
 myApp.search = (function(){
     "use strict";
 
-
     var searchApp = function(){
         this.employees = myApp.employees;
-        this.init();
     };
 
     searchApp.prototype.init = function(){
@@ -20,7 +18,7 @@ myApp.search = (function(){
     };
 
     searchApp.prototype.bindEvents = function(){
-        //this.addEventOnSearch();
+
     };
 
     searchApp.prototype.filterItem = function(item, nameColumn){
@@ -44,13 +42,12 @@ myApp.search = (function(){
     return searchApp;
 })();
 
-var searchField = document.querySelectorAll(".select-filter-by");
+var searchField = document.querySelector(".select-filter-by");
 
 myApp.myInstance = new myApp.search();
 myApp.pubSub.listen("customEvent", myApp.myInstance.filterItem);
 
-searchField[0].addEventListener("keyup", function(e){
+searchField.addEventListener("keyup", function(e){
     var searchItem = e.target.value;
     myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
 });
-
