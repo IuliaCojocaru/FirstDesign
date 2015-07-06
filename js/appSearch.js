@@ -6,40 +6,44 @@ myApp = myApp || {};
 
 myApp.search = (function(){
     "use strict";
+
     var searchApp = function(){
         this.employees = myApp.employees;
         this.init();
     };
 
     searchApp.prototype.init = function(){
+        this.bindEvents();
+    };
+
+    searchApp.prototype.bindEvents = function(){
         this.addEventOnSearch();
     };
 
     searchApp.prototype.filterItem = function(item){
-        var word = item.toLowerCase();
-        var self = this;
+        var word = item.toLowerCase(),
+            rows = document.querySelectorAll(".table-wrapper .row");
 
-        for(var index in self.employees){
-            var nameColumn = self.employees[index].fullname;
-            if(nameColumn.indexOf(word) >= 0)
-                console.log(word, nameColumn);
-            return nameColumn;
+        for(var i = 0; i < this.employees.length; i++){
+            var nameColumn = (this.employees[i].fullname).toLowerCase();
+            if(nameColumn.indexOf(word) != -1){
+                rows[i].style.display = "table-row";
+            }else{
+                rows[i].style.display = "none";
+            }
         }
     };
+
     //TODO: setTimeout +  publish/subscriber pattern
 
     searchApp.prototype.addEventOnSearch = function(){
-        var searchField = document.querySelectorAll(".select-filter-by");
-        var rows = document.querySelectorAll(".row");
-        var self = this;
+        var searchField = document.querySelectorAll(".select-filter-by"),
+            self = this;
 
         for(var item = 0; item < searchField.length; item++){
             searchField[item].addEventListener("keyup", function(){
                 var value = searchField[0].value;
-               // var columnFlirted =
                 self.filterItem(value);
-
-               // console.log(columnFlirted);
             });
         }
     };
