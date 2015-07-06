@@ -36,18 +36,34 @@ myApp.search = (function(){
     };
 
     searchApp.prototype.filterHeader = function(item){
+        var word = item.toLowerCase(),
+            tableHeader = document.querySelector(".table-header"),
+            column = tableHeader.getElementsByTagName("span");
 
+        for(var index = 0; index < column.length; index++){
+            var currentColumn = column[index].textContent;
+            if(currentColumn.toLowerCase().indexOf(word) != -1){
+                column[index].style.backgroundColor = "red";
+            }
+        }
     };
 
     return searchApp;
 })();
 
 var searchField = document.querySelector(".select-filter-by");
+var myForm = document.querySelector(".employees-selection");
 
 myApp.myInstance = new myApp.search();
-myApp.pubSub.listen("customEvent", myApp.myInstance.filterItem);
+//myApp.pubSub.listen("customEvent", myApp.myInstance.filterItem);
+myApp.pubSub.listen("searchFilterEvent", myApp.myInstance.filterHeader);
+
+myForm.addEventListener("submit", function(e){
+    e.preventDefault();
+});
 
 searchField.addEventListener("keyup", function(e){
     var searchItem = e.target.value;
-    myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
+  //  myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
+    myApp.pubSub.fire('searchFilterEvent', searchItem, 'header', myApp.myInstance);
 });
