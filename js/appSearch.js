@@ -48,16 +48,12 @@ myApp.search = (function(){
             if(currentColumn.indexOf(searchedWord[0]) != -1) {
                 foundColumn = column[index];
             }
-            else{
-                alert(" Column with the inserted item not found, please insert a valid column!");
-                break;
-            }
             if(foundColumn){
                 this.showLoadingImage();
                 this.hideLoadingImage();
                 foundColumn.style.backgroundColor = "red";
                 for (var i = 0; i < this.employees.length; i++){
-                    if (this.employees[i][currentColumn].toLowerCase().indexOf(searchedWord[1]) != -1){
+                    if(this.employees[i][currentColumn].toLowerCase().indexOf(searchedWord[1]) != -1){
                         rows[i].style.display = "table-row";
                     }
                     else{
