@@ -8,6 +8,7 @@ myApp = myApp || {};
 
 myApp.search = (function(){
     "use strict";
+    var loadingElement = document.querySelector(".loading");
 
     var searchApp = function(){
         this.employees = myApp.employees;
@@ -41,13 +42,15 @@ myApp.search = (function(){
             rows = document.querySelectorAll(".table-search .row"),
             searchedWord = item.toLocaleLowerCase().trim().replace(/ +/g, "").split(":"),
             foundColumn;
-        
+
         for (var index = 0; index < this.employees.length; index++){
             var currentColumn = column[index].textContent.toLowerCase().trim().replace(/ +/g, "");
             if(currentColumn.indexOf(searchedWord[0]) != -1) {
                 foundColumn = column[index];
             }
             if(foundColumn){
+                this.showLoadingImage();
+                this.hideLoadingImage();
                 foundColumn.style.backgroundColor = "red";
                 for (var i = 0; i < this.employees.length; i++){
                     if (this.employees[i][currentColumn].toLowerCase().indexOf(searchedWord[1]) != -1){
@@ -60,6 +63,16 @@ myApp.search = (function(){
                 break;
             }
         }
+    };
+
+    searchApp.prototype.showLoadingImage = function(){
+        loadingElement.style.display = "block";
+    };
+
+    searchApp.prototype.hideLoadingImage = function(){
+        setTimeout(function(){
+            loadingElement.style.display = "none";
+        }, 1000);
     };
 
     function isWordAsciiValid(word){

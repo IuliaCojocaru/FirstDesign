@@ -12,7 +12,7 @@ myApp.employees = (function(){
             grade: "Senior Engineer",
             allocationstatus: "Allocated",
             project: "Trinity Mirror",
-            dateofbooking: "10/05/2014"
+            dateofbooking: "10/05/2015"
         },
         {
             fullname: "Vrinceanu Valentin",
@@ -21,14 +21,14 @@ myApp.employees = (function(){
             allocationstatus: "Not Allocated",
             project: "Visa",
             dateofbooking: "10/05/2014"
-            },
+        },
         {
             fullname: "Bogdan Volosincu",
             jobtitle: ".NET Developer",
             grade: "Senior Technician",
             allocationstatus: "Allocated",
             project: "Graduates",
-            dateofbooking: "10/05/2014"
+            dateofbooking: "10/08/2014"
             },
         {
             fullname: "Ciba Mumu",
