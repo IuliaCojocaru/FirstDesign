@@ -1,7 +1,5 @@
 var myApp = myApp || {};
 
-//TODO: config file
-
 myApp.dataTable= (function(){
     "use strict";
     var editableTable = ".table-editable";

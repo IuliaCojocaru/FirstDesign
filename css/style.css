@@ -29,9 +29,6 @@ header{
     clear: both;
     background-color: rgb(229, 223, 223);
     height: 135px;
-}
-
-.header-form {
     text-align: center;
     padding: 40px;
     box-sizing: border-box;
@@ -39,7 +36,7 @@ header{
 }
 
 .header-form input,
-.header-form select {
+.header-form select{
     height: 235%;
     width: 18%;
     border-radius: 10px;
@@ -118,11 +115,6 @@ main{
     width: 100%;
     border-bottom: 1px solid rgb(208, 207, 207);
     min-height: 36px;
-}
-
-.collapsed-employee-infos{
-    border-bottom: none;
-    font-size: 15px;
 }
 
 .pagination{
@@ -225,16 +217,6 @@ main{
     background-color: white;
     color: rgb(236, 16, 16);
     border-width: 1px;
-}
-
-#inactive-button{
-    border-color:gray;
-    color:gray;
-    margin-top: -64px;
-}
-
-#active-button{
-    margin-top: -120px;
 }
 
 .pagination li:last-child{

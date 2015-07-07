@@ -4,8 +4,6 @@
 
 myApp = myApp || {};
 
-//TODO: setTimeout +  publish/subscriber pattern
-
 myApp.search = (function(){
     "use strict";
     var loadingElement = document.querySelector(".loading");
