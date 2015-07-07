@@ -48,6 +48,10 @@ myApp.search = (function(){
             if(currentColumn.indexOf(searchedWord[0]) != -1) {
                 foundColumn = column[index];
             }
+            else{
+                alert(" Column with the inserted item not found, please insert a valid column!");
+                break;
+            }
             if(foundColumn){
                 this.showLoadingImage();
                 this.hideLoadingImage();
@@ -74,17 +78,6 @@ myApp.search = (function(){
             loadingElement.style.display = "none";
         }, 1000);
     };
-
-    function isWordAsciiValid(word){
-        if(typeof(word) !== 'string'){
-            return false;
-        }
-        for(var i = 0; i < word.length; i++){
-            if(word.charCodeAt(i) > 127){
-                alert("Word Not Valid!");
-            }
-        }
-    }
 
     return searchApp;
 })();
