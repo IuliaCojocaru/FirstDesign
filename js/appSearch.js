@@ -35,18 +35,43 @@ myApp.search = (function(){
         }
     };
 
-    searchApp.prototype.filterHeader = function(item){
-        var word = item.toLowerCase(),
-            tableHeader = document.querySelector(".table-header"),
-            column = tableHeader.getElementsByTagName("span");
-
-        for(var index = 0; index < column.length; index++){
-            var currentColumn = column[index].textContent;
-            if(currentColumn.toLowerCase().indexOf(word) != -1){
-                column[index].style.backgroundColor = "red";
+    searchApp.prototype.filterHeader = function(item) {
+        var tableHeader = document.querySelector(".table-header"),
+            column = tableHeader.getElementsByTagName("span"),
+            rows = document.querySelectorAll(".table-search .row"),
+            searchedWord = item.toLocaleLowerCase().trim().replace(/ +/g, "").split(":"),
+            foundColumn;
+        
+        for (var index = 0; index < this.employees.length; index++){
+            var currentColumn = column[index].textContent.toLowerCase().trim().replace(/ +/g, "");
+            if(currentColumn.indexOf(searchedWord[0]) != -1) {
+                foundColumn = column[index];
+            }
+            if(foundColumn){
+                foundColumn.style.backgroundColor = "red";
+                for (var i = 0; i < this.employees.length; i++){
+                    if (this.employees[i][currentColumn].toLowerCase().indexOf(searchedWord[1]) != -1){
+                        rows[i].style.display = "table-row";
+                    }
+                    else{
+                        rows[i].style.display = "none";
+                    }
+                }
+                break;
             }
         }
     };
+
+    function isWordAsciiValid(word){
+        if(typeof(word) !== 'string'){
+            return false;
+        }
+        for(var i = 0; i < word.length; i++){
+            if(word.charCodeAt(i) > 127){
+                alert("Word Not Valid!");
+            }
+        }
+    }
 
     return searchApp;
 })();
@@ -64,6 +89,9 @@ myForm.addEventListener("submit", function(e){
 
 searchField.addEventListener("keyup", function(e){
     var searchItem = e.target.value;
-  //  myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
-    myApp.pubSub.fire('searchFilterEvent', searchItem, 'header', myApp.myInstance);
+
+    if(e.keyCode == 13){
+//        myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
+        myApp.pubSub.fire('searchFilterEvent', searchItem, 'header', myApp.myInstance);
+    }
 });
