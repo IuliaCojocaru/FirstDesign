@@ -7,9 +7,10 @@ myApp = myApp || {};
 myApp.search = (function(){
     "use strict";
     var loadingElement = document.querySelector(".loading");
+    var myDataFromStorage = myApp.storageInstance.getDataFromStorage();
 
     var searchApp = function(){
-        this.employees = myApp.employees;
+        this.employees = JSON.parse(myDataFromStorage);
     };
 
     searchApp.prototype.init = function(){

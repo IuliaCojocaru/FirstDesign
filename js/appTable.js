@@ -3,8 +3,10 @@ var myApp = myApp || {};
 myApp.dataTable= (function(){
     "use strict";
     var editableTable = ".table-editable";
+    var myDataFromStorage = myApp.storageInstance.getDataFromStorage();
+
     var tableApp = function(){
-        this.employees = myApp.employees;
+        this.employees = JSON.parse(myDataFromStorage);
         this.init();
     };
 
