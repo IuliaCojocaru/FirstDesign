@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/css/mediaQuery.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/css/style.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/templates/sectionEmployees.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/appModifyTable.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/appSearch.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/appTable.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/publishSubscriber.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/appData.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/appStorage.js" charset="UTF-8" />
   </component>
 </project>

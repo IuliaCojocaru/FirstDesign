@@ -2,8 +2,8 @@ var myApp = myApp || {};
 
 myApp.dataTable= (function(){
     "use strict";
-    var editableTable = ".table-editable";
-    var myDataFromStorage = myApp.storageInstance.getDataFromStorage();
+    var editableTable = ".table-editable",
+        myDataFromStorage = myApp.storageInstance.getDataFromStorage();
 
     var tableApp = function(){
         this.employees = JSON.parse(myDataFromStorage);
@@ -17,6 +17,7 @@ myApp.dataTable= (function(){
     tableApp.prototype.bindEvents = function(){
         this.generateTable(this.employees);
         this.makeTableEditable(editableTable);
+
     };
 
     tableApp.prototype.createListTools = function(){
@@ -79,8 +80,26 @@ myApp.dataTable= (function(){
         }
     };
 
+    tableApp.prototype.editRow = function(){
+        var row = document.querySelectorAll(".table-editable .row");
+        
+
+        console.log(row);
+
+    };
+
     return tableApp;
 })();
 
-myApp.tableInstances = new myApp.dataTable();
+myApp.tableInstance = new myApp.dataTable();
 
+var editIcon = document.querySelectorAll(".table-editable .edit-employee-list a");
+
+myApp.pubSub.listen("editRowEvent", myApp.tableInstance.editRow);
+
+for(var i = 0; i < editIcon.length; i++){
+    editIcon[i].addEventListener("click", function(){
+        myApp.pubSub.fire('editRowEvent', '', '', myApp.tableInstance);
+
+    });
+}
