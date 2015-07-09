@@ -7,6 +7,7 @@ myApp.dataTable= (function(){
 
     var tableApp = function(){
         this.employees = JSON.parse(myDataFromStorage);
+        console.log(this.employees);
         this.init();
     };
 
@@ -17,14 +18,18 @@ myApp.dataTable= (function(){
     tableApp.prototype.bindEvents = function(){
         this.generateTable(this.employees);
         this.makeTableEditable(editableTable);
-
     };
 
     tableApp.prototype.createListTools = function(){
         var listRoot = document.createElement("ul"),
             firstListItem = document.createElement("li"),
             lastListItem = document.createElement("li"),
-            aLink = document.createElement("a");
+            aLink = document.createElement("a"),
+            saveButton = document.createElement("input");
+
+        saveButton.type = "button";
+        saveButton.className = "save-row";
+        saveButton.value = "Save";
 
         aLink.setAttribute("href", "#");
 
@@ -36,6 +41,7 @@ myApp.dataTable= (function(){
 
         listRoot.appendChild(firstListItem);
         listRoot.appendChild(lastListItem);
+        listRoot.appendChild(saveButton);
 
         return listRoot;
     };
@@ -50,6 +56,7 @@ myApp.dataTable= (function(){
                     row = document.createElement("div");
 
                 row.className = "row";
+                row.setAttribute("data-table-row", index);
 
                 for(var employeeObject in dataObject[index]){
                     var column = document.createElement("span");
@@ -80,12 +87,47 @@ myApp.dataTable= (function(){
         }
     };
 
-    tableApp.prototype.editRow = function(){
-        var row = document.querySelectorAll(".table-editable .row");
-        
+    tableApp.prototype.addNewRow = function(){
+        var table = document.querySelector(".table-editable"),
+            row = document.createElement("div"),
+            list = this.createListTools();
 
-        console.log(row);
+        row.className = "row";
+        row.setAttribute("data-table-row",this.employees.length);
+        table.appendChild(row);
 
+        for(var index in this.employees[0]){
+            var myInput = document.createElement("input");
+            myInput.type = "text";
+            row.appendChild(myInput);
+        }
+        row.appendChild(list);
+    };
+
+    tableApp.prototype.saveNewRow = function(ev){
+        var header = [],
+            table = document.querySelectorAll(".table-header"),
+            columns = table[1].getElementsByTagName("span"),
+            tableRows = document.querySelector(".table-editable"),
+            lastColumn = tableRows.lastElementChild,
+            parent = ev.target.parentElement.parentElement,
+            allInputs = parent.querySelectorAll("input[type = 'text']");
+
+        for(var i = 0; i < columns.length; i++){
+            var headerAttribute = columns[i].getAttribute("data-key-id");
+            header.push({keyId:headerAttribute});
+        }
+
+        var newObject = {};
+
+        for(var index = 0; index < header.length; index++){
+            var key = header[index].keyId;
+            console.log(key)
+            newObject[key] = allInputs[index].value;
+        }
+
+        this.employees.push(newObject);
+        localStorage.setItem("dataObject", JSON.stringify(this.employees));
     };
 
     return tableApp;
@@ -93,13 +135,20 @@ myApp.dataTable= (function(){
 
 myApp.tableInstance = new myApp.dataTable();
 
-var editIcon = document.querySelectorAll(".table-editable .edit-employee-list a");
+var addNewRow = document.querySelector(".add-row");
 
-myApp.pubSub.listen("editRowEvent", myApp.tableInstance.editRow);
+myApp.pubSub.listen("addNewRowEvent", myApp.tableInstance.addNewRow);
+myApp.pubSub.listen("saveRowEvent", myApp.tableInstance.saveNewRow);
 
-for(var i = 0; i < editIcon.length; i++){
-    editIcon[i].addEventListener("click", function(){
-        myApp.pubSub.fire('editRowEvent', '', '', myApp.tableInstance);
+addNewRow.addEventListener("click", function(){
+    myApp.pubSub.fire('addNewRowEvent', '', '', myApp.tableInstance);
+});
 
-    });
-}
+var editableTable = document.querySelector('.table-editable');
+
+editableTable.addEventListener('click', function (e){
+    if(e.target.classList.contains('save-row')){
+        myApp.pubSub.fire("saveRowEvent", e, '', myApp.tableInstance);
+    }
+});
+
