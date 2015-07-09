@@ -2,12 +2,11 @@ var myApp = myApp || {};
 
 myApp.dataTable= (function(){
     "use strict";
-    var editableTable = ".table-editable",
-        myDataFromStorage = myApp.storageInstance.getDataFromStorage();
+    var editableTable = ".table-editable";
+        //myDataFromStorage = myApp.storageInstance.getDataFromStorage();
 
     var tableApp = function(){
-        this.employees = JSON.parse(myDataFromStorage);
-        console.log(this.employees);
+        this.employees = JSON.parse(myApp.storageInstance.getDataFromStorage());
         this.init();
     };
 
@@ -62,7 +61,7 @@ myApp.dataTable= (function(){
                     var column = document.createElement("span");
                     var spanValue = dataObject[index][employeeObject];
                     column.innerHTML = spanValue;
-                    column.setAttribute('data-editable', "");
+                    column.setAttribute("data-editable", "");
                     row.appendChild(column);
                     row.appendChild(list);
                 }
@@ -108,8 +107,6 @@ myApp.dataTable= (function(){
         var header = [],
             table = document.querySelectorAll(".table-header"),
             columns = table[1].getElementsByTagName("span"),
-            tableRows = document.querySelector(".table-editable"),
-            lastColumn = tableRows.lastElementChild,
             parent = ev.target.parentElement.parentElement,
             allInputs = parent.querySelectorAll("input[type = 'text']");
 
@@ -122,12 +119,26 @@ myApp.dataTable= (function(){
 
         for(var index = 0; index < header.length; index++){
             var key = header[index].keyId;
-            console.log(key)
             newObject[key] = allInputs[index].value;
         }
 
         this.employees.push(newObject);
         localStorage.setItem("dataObject", JSON.stringify(this.employees));
+        location.reload();
+    };
+
+    tableApp.prototype.deleteRow = function(ev){
+        var parent = ev.target.parentElement.parentElement.parentElement,
+            parentAttribute = parent.getAttribute("data-table-row");
+
+        console.log(parent);
+        for(var i = 0; i < this.employees.length; i++){
+            if(parentAttribute == i){
+                this.employees.splice(i);
+            }
+        }
+        localStorage.setItem("dataObject", JSON.stringify(this.employees));
+        location.reload();
     };
 
     return tableApp;
@@ -135,20 +146,29 @@ myApp.dataTable= (function(){
 
 myApp.tableInstance = new myApp.dataTable();
 
-var addNewRow = document.querySelector(".add-row");
+var addNewRow = document.querySelector(".add-row"),
+    deleteRow = document.querySelectorAll(".collapse-employee-list a");
 
 myApp.pubSub.listen("addNewRowEvent", myApp.tableInstance.addNewRow);
 myApp.pubSub.listen("saveRowEvent", myApp.tableInstance.saveNewRow);
+myApp.pubSub.listen("deleteRowEvent", myApp.tableInstance.deleteRow);
 
 addNewRow.addEventListener("click", function(){
-    myApp.pubSub.fire('addNewRowEvent', '', '', myApp.tableInstance);
+    myApp.pubSub.fire("addNewRowEvent", "", "", myApp.tableInstance);
 });
 
 var editableTable = document.querySelector('.table-editable');
 
-editableTable.addEventListener('click', function (e){
-    if(e.target.classList.contains('save-row')){
-        myApp.pubSub.fire("saveRowEvent", e, '', myApp.tableInstance);
+editableTable.addEventListener("click", function (e){
+    if(e.target.classList.contains("save-row")){
+        myApp.pubSub.fire("saveRowEvent", e, "", myApp.tableInstance);
     }
 });
+
+for(var i = 0; i < deleteRow.length; i++){
+    deleteRow[i].addEventListener("click", function(e){
+        myApp.pubSub.fire("deleteRowEvent", e, "", myApp.tableInstance);
+    });
+}
+
 

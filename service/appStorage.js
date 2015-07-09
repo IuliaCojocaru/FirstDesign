@@ -7,7 +7,7 @@ myApp = myApp || {};
 myApp.storageData = (function(){
     "use strict";
     var storageApp = function(){
-        this.employees = myApp.employees;
+        this.employees = myApp.employees;//this.getDataFromStorage();//
         this.init();
     };
 
@@ -21,7 +21,9 @@ myApp.storageData = (function(){
     };
 
     storageApp.prototype.storeData = function(){
-        localStorage.setItem("dataObject", JSON.stringify(this.employees));
+        if(localStorage.length === 0){
+            localStorage.setItem("dataObject", JSON.stringify(this.employees));
+        }
     };
 
     storageApp.prototype.getDataFromStorage = function(){
@@ -29,6 +31,6 @@ myApp.storageData = (function(){
     };
 
     return storageApp;
-})();
+}());
 
 myApp.storageInstance = new myApp.storageData();

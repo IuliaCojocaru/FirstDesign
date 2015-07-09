@@ -93,6 +93,6 @@ searchField.addEventListener("keyup", function(e){
 
     if(e.keyCode == 13){
 //        myApp.pubSub.fire('customEvent', searchItem, 'fullname', myApp.myInstance);
-        myApp.pubSub.fire('searchFilterEvent', searchItem, 'header', myApp.myInstance);
+        myApp.pubSub.fire("searchFilterEvent", searchItem, "header", myApp.myInstance);
     }
 });
