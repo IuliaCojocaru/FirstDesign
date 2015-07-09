@@ -3,23 +3,22 @@ var myApp = myApp || {};
 myApp.dataTable= (function(){
     "use strict";
     var editableTable = ".table-editable";
-        //myDataFromStorage = myApp.storageInstance.getDataFromStorage();
 
-    var tableApp = function(){
+    var TableApp = function(){
         this.employees = JSON.parse(myApp.storageInstance.getDataFromStorage());
         this.init();
     };
 
-    tableApp.prototype.init = function(){
+    TableApp.prototype.init = function(){
         this.bindEvents();
     };
 
-    tableApp.prototype.bindEvents = function(){
+    TableApp.prototype.bindEvents = function(){
         this.generateTable(this.employees);
         this.makeTableEditable(editableTable);
     };
 
-    tableApp.prototype.createListTools = function(){
+    TableApp.prototype.createListTools = function(){
         var listRoot = document.createElement("ul"),
             firstListItem = document.createElement("li"),
             lastListItem = document.createElement("li"),
@@ -45,7 +44,7 @@ myApp.dataTable= (function(){
         return listRoot;
     };
 
-    tableApp.prototype.generateTable = function(dataObject){
+    TableApp.prototype.generateTable = function(dataObject){
         var table = document.querySelectorAll(".table-wrapper"),
             self = this;
 
@@ -70,7 +69,7 @@ myApp.dataTable= (function(){
         }
     };
 
-    tableApp.prototype.makeTableEditable = function(dataTable){
+    TableApp.prototype.makeTableEditable = function(dataTable){
         var editableSpans = document.querySelectorAll(dataTable + " [data-editable]");
 
         for(var i = 0; i < editableSpans.length; i++){
@@ -86,7 +85,7 @@ myApp.dataTable= (function(){
         }
     };
 
-    tableApp.prototype.addNewRow = function(){
+    TableApp.prototype.addNewRow = function(){
         var table = document.querySelector(".table-editable"),
             row = document.createElement("div"),
             list = this.createListTools();
@@ -103,7 +102,7 @@ myApp.dataTable= (function(){
         row.appendChild(list);
     };
 
-    tableApp.prototype.saveNewRow = function(ev){
+    TableApp.prototype.saveNewRow = function(ev){
         var header = [],
             table = document.querySelectorAll(".table-header"),
             columns = table[1].getElementsByTagName("span"),
@@ -127,7 +126,7 @@ myApp.dataTable= (function(){
         location.reload();
     };
 
-    tableApp.prototype.deleteRow = function(ev){
+    TableApp.prototype.deleteRow = function(ev){
         var parent = ev.target.parentElement.parentElement.parentElement,
             parentAttribute = parent.getAttribute("data-table-row");
 
@@ -141,7 +140,7 @@ myApp.dataTable= (function(){
         location.reload();
     };
 
-    return tableApp;
+    return TableApp;
 })();
 
 myApp.tableInstance = new myApp.dataTable();

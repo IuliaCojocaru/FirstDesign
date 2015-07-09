@@ -6,31 +6,31 @@ myApp = myApp || {};
 
 myApp.storageData = (function(){
     "use strict";
-    var storageApp = function(){
-        this.employees = myApp.employees;//this.getDataFromStorage();//
+    var StorageApp = function(){
+        this.employees = myApp.employees;
         this.init();
     };
 
-    storageApp.prototype.init = function(){
+    StorageApp.prototype.init = function(){
         this.bindEvents();
     };
 
-    storageApp.prototype.bindEvents = function(){
+    StorageApp.prototype.bindEvents = function(){
         this.storeData();
         this.getDataFromStorage();
     };
 
-    storageApp.prototype.storeData = function(){
+    StorageApp.prototype.storeData = function(){
         if(localStorage.length === 0){
             localStorage.setItem("dataObject", JSON.stringify(this.employees));
         }
     };
 
-    storageApp.prototype.getDataFromStorage = function(){
+    StorageApp.prototype.getDataFromStorage = function(){
         return localStorage.getItem("dataObject");
     };
 
-    return storageApp;
+    return StorageApp;
 }());
 
 myApp.storageInstance = new myApp.storageData();

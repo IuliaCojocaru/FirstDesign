@@ -9,19 +9,19 @@ myApp.search = (function(){
     var loadingElement = document.querySelector(".loading");
     var myDataFromStorage = myApp.storageInstance.getDataFromStorage();
 
-    var searchApp = function(){
+    var SearchApp = function(){
         this.employees = JSON.parse(myDataFromStorage);
     };
 
-    searchApp.prototype.init = function(){
+    SearchApp.prototype.init = function(){
         this.bindEvents();
     };
 
-    searchApp.prototype.bindEvents = function(){
+    SearchApp.prototype.bindEvents = function(){
 
     };
 
-    searchApp.prototype.filterItem = function(item, nameColumn){
+    SearchApp.prototype.filterItem = function(item, nameColumn){
         var word = item.toLowerCase(),
             rows = document.querySelectorAll(".table-wrapper .row");
 
@@ -35,7 +35,7 @@ myApp.search = (function(){
         }
     };
 
-    searchApp.prototype.filterHeader = function(item) {
+    SearchApp.prototype.filterHeader = function(item) {
         var tableHeader = document.querySelector(".table-header"),
             column = tableHeader.getElementsByTagName("span"),
             rows = document.querySelectorAll(".table-search .row"),
@@ -64,17 +64,17 @@ myApp.search = (function(){
         }
     };
 
-    searchApp.prototype.showLoadingImage = function(){
+    SearchApp.prototype.showLoadingImage = function(){
         loadingElement.style.display = "block";
     };
 
-    searchApp.prototype.hideLoadingImage = function(){
+    SearchApp.prototype.hideLoadingImage = function(){
         setTimeout(function(){
             loadingElement.style.display = "none";
         }, 1000);
     };
 
-    return searchApp;
+    return SearchApp;
 })();
 
 var searchField = document.querySelector(".select-filter-by");
