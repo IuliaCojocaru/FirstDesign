@@ -22,6 +22,7 @@ myApp.dataTable = (function () {
     TableApp.prototype.createListTools = function () {
         var listRoot = document.createElement("ul"),
             firstListItem = document.createElement("li"),
+            secondListItem = document.createElement("li"),
             lastListItem = document.createElement("li"),
             aLink = document.createElement("a"),
             saveButton = document.createElement("input");
@@ -33,14 +34,15 @@ myApp.dataTable = (function () {
         aLink.setAttribute("href", "#");
 
         firstListItem.className = "edit-employee-list";
-        lastListItem.className = "collapse-employee-list";
+        secondListItem.className = "collapse-employee-list";
 
         firstListItem.appendChild(aLink);
-        lastListItem.appendChild(aLink.cloneNode(true));
+        secondListItem.appendChild(aLink.cloneNode(true));
+        lastListItem.appendChild(saveButton);
 
         listRoot.appendChild(firstListItem);
+        listRoot.appendChild(secondListItem);
         listRoot.appendChild(lastListItem);
-        listRoot.appendChild(saveButton);
 
         return listRoot;
     };
@@ -80,6 +82,7 @@ myApp.dataTable = (function () {
             myInput.type = "text";
             myInput.textContent = editableSpans[i].innerText;
             myInput.value = editableSpans[i].innerText;
+            myInput.className = 'editable-input';
 
             columnParent.insertBefore(myInput,editableSpans[i]);
             editableSpans[i].remove();
@@ -107,7 +110,7 @@ myApp.dataTable = (function () {
         var header = [],
             table = document.querySelectorAll(".table-header"),
             columns = table[1].getElementsByTagName("span"),
-            parent = ev.target.parentElement.parentElement,
+            parent = ev.target.parentElement.parentElement.parentElement,
             allInputs = parent.querySelectorAll("input[type = 'text']");
 
         for(var i = 0; i < columns.length; i++) {

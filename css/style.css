@@ -149,7 +149,8 @@ main{
 
 .table-header span,
 .row span,
-.collapsed-employee-infos span{
+.collapsed-employee-infos span,
+.row .editable-input{
     display: table-cell;
     width: 16.66%;
     padding: 10px 5px;
@@ -224,7 +225,7 @@ main{
 }
 
 .loading{
-    background: #fff url("../img/loading.jpg") no-repeat center;
+    background: #fff url("../img/loading.gif") no-repeat center;
     position: absolute;
     width: 100%;
     height: 100%;
