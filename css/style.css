@@ -231,3 +231,18 @@ main{
     height: 100%;
     display: none;
 }
+
+.row input{
+    border: none;
+}
+
+.add-row{
+    height: 235%;
+    width: 11%;
+    border-radius: 10px;
+    font-size: 15px;
+    border: none;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-right: 15px;
+}

@@ -1,7 +1,10 @@
 /**
  * Created by icojocaru on 6/25/2015.
  */
-var myApp = myApp || {};
+
+/*global myApp:true*/
+
+myApp = myApp || {};
 
 myApp.employees = (function(){
     "use strict";

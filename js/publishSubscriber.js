@@ -2,6 +2,8 @@
  * Created by icojocaru on 7/6/2015.
  */
 
+/*global myApp:true*/
+
 myApp = myApp || {};
 
 myApp.pubSub = (function(){
@@ -26,4 +28,4 @@ myApp.pubSub = (function(){
         listen: listen,
         fire: fire
     };
-})();
+}());

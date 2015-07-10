@@ -2,6 +2,8 @@
  * Created by icojocaru on 7/8/2015.
  */
 
+/*global myApp:true*/
+
 myApp = myApp || {};
 
 myApp.storageData = (function(){

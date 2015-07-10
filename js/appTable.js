@@ -1,24 +1,25 @@
-var myApp = myApp || {};
+/*global console, myApp:true*/
+myApp = myApp || {};
 
-myApp.dataTable= (function(){
+myApp.dataTable = (function () {
     "use strict";
     var editableTable = ".table-editable";
 
-    var TableApp = function(){
+    var TableApp = function () {
         this.employees = JSON.parse(myApp.storageInstance.getDataFromStorage());
         this.init();
     };
 
-    TableApp.prototype.init = function(){
+    TableApp.prototype.init = function () {
         this.bindEvents();
     };
 
-    TableApp.prototype.bindEvents = function(){
+    TableApp.prototype.bindEvents = function () {
         this.generateTable(this.employees);
         this.makeTableEditable(editableTable);
     };
 
-    TableApp.prototype.createListTools = function(){
+    TableApp.prototype.createListTools = function () {
         var listRoot = document.createElement("ul"),
             firstListItem = document.createElement("li"),
             lastListItem = document.createElement("li"),
@@ -44,11 +45,11 @@ myApp.dataTable= (function(){
         return listRoot;
     };
 
-    TableApp.prototype.generateTable = function(dataObject){
+    TableApp.prototype.generateTable = function(dataObject) {
         var table = document.querySelectorAll(".table-wrapper"),
             self = this;
 
-        for(var i = 0; i < table.length; i++){
+        for(var i = 0; i < table.length; i++) {
             for(var index in dataObject){
                 var list = self.createListTools(),
                     row = document.createElement("div");
@@ -56,7 +57,7 @@ myApp.dataTable= (function(){
                 row.className = "row";
                 row.setAttribute("data-table-row", index);
 
-                for(var employeeObject in dataObject[index]){
+                for(var employeeObject in dataObject[index]) {
                     var column = document.createElement("span");
                     var spanValue = dataObject[index][employeeObject];
                     column.innerHTML = spanValue;
@@ -69,10 +70,10 @@ myApp.dataTable= (function(){
         }
     };
 
-    TableApp.prototype.makeTableEditable = function(dataTable){
+    TableApp.prototype.makeTableEditable = function(dataTable) {
         var editableSpans = document.querySelectorAll(dataTable + " [data-editable]");
 
-        for(var i = 0; i < editableSpans.length; i++){
+        for(var i = 0; i < editableSpans.length; i++) {
             var myInput = document.createElement('input'),
                 columnParent = editableSpans[i].parentElement;
 
@@ -85,7 +86,7 @@ myApp.dataTable= (function(){
         }
     };
 
-    TableApp.prototype.addNewRow = function(){
+    TableApp.prototype.addNewRow = function() {
         var table = document.querySelector(".table-editable"),
             row = document.createElement("div"),
             list = this.createListTools();
@@ -94,7 +95,7 @@ myApp.dataTable= (function(){
         row.setAttribute("data-table-row",this.employees.length);
         table.appendChild(row);
 
-        for(var index in this.employees[0]){
+        for(var index in this.employees[0]) {
             var myInput = document.createElement("input");
             myInput.type = "text";
             row.appendChild(myInput);
@@ -102,21 +103,21 @@ myApp.dataTable= (function(){
         row.appendChild(list);
     };
 
-    TableApp.prototype.saveNewRow = function(ev){
+    TableApp.prototype.saveNewRow = function(ev) {
         var header = [],
             table = document.querySelectorAll(".table-header"),
             columns = table[1].getElementsByTagName("span"),
             parent = ev.target.parentElement.parentElement,
             allInputs = parent.querySelectorAll("input[type = 'text']");
 
-        for(var i = 0; i < columns.length; i++){
+        for(var i = 0; i < columns.length; i++) {
             var headerAttribute = columns[i].getAttribute("data-key-id");
             header.push({keyId:headerAttribute});
         }
 
         var newObject = {};
 
-        for(var index = 0; index < header.length; index++){
+        for(var index = 0; index < header.length; index++) {
             var key = header[index].keyId;
             newObject[key] = allInputs[index].value;
         }
@@ -126,12 +127,11 @@ myApp.dataTable= (function(){
         location.reload();
     };
 
-    TableApp.prototype.deleteRow = function(ev){
+    TableApp.prototype.deleteRow = function(ev) {
         var parent = ev.target.parentElement.parentElement.parentElement,
             parentAttribute = parent.getAttribute("data-table-row");
 
-        console.log(parent);
-        for(var i = 0; i < this.employees.length; i++){
+        for(var i = 0; i < this.employees.length; i++) {
             if(parentAttribute == i){
                 this.employees.splice(i);
             }
@@ -141,7 +141,7 @@ myApp.dataTable= (function(){
     };
 
     return TableApp;
-})();
+}());
 
 myApp.tableInstance = new myApp.dataTable();
 
@@ -152,20 +152,23 @@ myApp.pubSub.listen("addNewRowEvent", myApp.tableInstance.addNewRow);
 myApp.pubSub.listen("saveRowEvent", myApp.tableInstance.saveNewRow);
 myApp.pubSub.listen("deleteRowEvent", myApp.tableInstance.deleteRow);
 
-addNewRow.addEventListener("click", function(){
+addNewRow.addEventListener("click", function () {
+    "use strict";
     myApp.pubSub.fire("addNewRowEvent", "", "", myApp.tableInstance);
 });
 
 var editableTable = document.querySelector('.table-editable');
 
-editableTable.addEventListener("click", function (e){
+editableTable.addEventListener("click", function (e) {
+    "use strict";
     if(e.target.classList.contains("save-row")){
         myApp.pubSub.fire("saveRowEvent", e, "", myApp.tableInstance);
     }
 });
 
 for(var i = 0; i < deleteRow.length; i++){
-    deleteRow[i].addEventListener("click", function(e){
+    deleteRow[i].addEventListener("click", function(e) {
+        "use strict";
         myApp.pubSub.fire("deleteRowEvent", e, "", myApp.tableInstance);
     });
 }
