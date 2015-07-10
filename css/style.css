@@ -246,3 +246,30 @@ main{
     padding: 12px;
     margin-right: 15px;
 }
+
+.overlay{
+    display:none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+}
+
+.overlay div{
+    width:300px;
+    margin: 100px auto;
+    background-color: #fff;
+    border:1px solid #000;
+    padding:15px;
+    text-align:center;
+}
+
+.overlay a{
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    color: black;
+    float: right;
+}

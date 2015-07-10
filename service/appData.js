@@ -6,7 +6,7 @@
 
 myApp = myApp || {};
 
-myApp.employees = (function(){
+myApp.employees = (function () {
     "use strict";
     var employeesObject = [
         {

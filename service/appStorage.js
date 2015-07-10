@@ -6,7 +6,7 @@
 
 myApp = myApp || {};
 
-myApp.storageData = (function(){
+myApp.storageData = (function () {
     "use strict";
     var StorageApp = function(){
         this.employees = myApp.employees;
