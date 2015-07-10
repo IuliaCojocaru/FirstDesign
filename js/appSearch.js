@@ -58,7 +58,7 @@ myApp.search = (function () {
     SearchApp.prototype.closeOverlay = function () {
         var overlayElement = document.querySelector(".overlay");
         overlayElement.style.display = "none";
-    }
+    };
 
     function isItemValid(str) {
         var regex = new RegExp("^[a-zA-Z0-9/ ]*$");
